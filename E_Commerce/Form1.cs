@@ -23,7 +23,7 @@ namespace E_Commerce
                 Form2 f2 = Program.ServiceProvider.GetRequiredService<Form2>();
                 //f2.Owner = this;
                 f2.Show();
-                this.Close();
+                this.Hide();
             }
         }
     }

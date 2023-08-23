@@ -20,8 +20,6 @@ namespace E_Commerce
         {
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
-            HostApplicationBuilder builder = Host.CreateApplicationBuilder();
-
 
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
