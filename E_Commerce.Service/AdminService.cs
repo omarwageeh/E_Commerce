@@ -1,5 +1,6 @@
 ﻿using E_Commerce.Dto;
 using E_Commerce.Model;
+using E_Commerce.Model.Enum;
 using E_Commerce.Repository.Interface;
 using E_Commerce.Repository.Repository;
 using System;
@@ -66,6 +67,10 @@ namespace E_Commerce.Service
         public async Task<IEnumerable?> GetCategories()
         {
             return await _uow.CategoryRepository.GetAll();
+        }
+        public async Task<IEnumerable<Category>?> GetCategories(Expression<Func<Category, bool>> predicate)
+        {
+            return await _uow.CategoryRepository.GetAll(predicate);
         }
         public void AddCategory(string name)
         {
@@ -134,6 +139,22 @@ namespace E_Commerce.Service
             var product = await _uow.ProductRepository.Get(p => p.Id == id);
             if(product == null) return;
             _uow.ProductRepository.Delete(product);
+        }
+
+        public async Task<IEnumerable<Order>?> GetOrders()
+        {
+            return await _uow.OrderRepository.GetAllWithInclude("Customer");
+        }
+        public async Task<Order?> GetOrder(Guid id)
+        {
+            return await _uow.OrderRepository.Get(o=>o.Id == id);
+        }
+        public async Task<bool?> UpdateOrder(Guid orderId,Status orderStatus)
+        {
+            Order order = await _uow.OrderRepository.Get(o=>o.Id == orderId);
+            order.Status = orderStatus;
+            _uow.OrderRepository.Update(order);
+            return _uow.SaveChanges() > 0;
         }
     }
 }

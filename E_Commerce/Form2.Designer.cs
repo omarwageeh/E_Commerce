@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
             button3 = new Button();
@@ -45,18 +44,23 @@
             textBox2 = new TextBox();
             textBox1 = new TextBox();
             tabPage2 = new TabPage();
+            button6 = new Button();
             button4 = new Button();
             button2 = new Button();
             label6 = new Label();
             textBox6 = new TextBox();
-            dataContextBindingSource1 = new BindingSource(components);
-            dataContextBindingSource = new BindingSource(components);
+            tabPage3 = new TabPage();
+            label8 = new Label();
+            label7 = new Label();
+            textBox7 = new TextBox();
+            comboBox1 = new ComboBox();
+            button8 = new Button();
+            button7 = new Button();
             dataGridView1 = new DataGridView();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataContextBindingSource1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataContextBindingSource).BeginInit();
+            tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -64,6 +68,7 @@
             // 
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
+            tabControl1.Controls.Add(tabPage3);
             tabControl1.Location = new Point(12, 2);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
@@ -204,6 +209,7 @@
             // 
             // tabPage2
             // 
+            tabPage2.Controls.Add(button6);
             tabPage2.Controls.Add(button4);
             tabPage2.Controls.Add(button2);
             tabPage2.Controls.Add(label6);
@@ -215,6 +221,16 @@
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Category Control";
             tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            button6.Location = new Point(179, 85);
+            button6.Name = "button6";
+            button6.Size = new Size(75, 23);
+            button6.TabIndex = 14;
+            button6.Text = "Search";
+            button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
             // 
             // button4
             // 
@@ -233,6 +249,7 @@
             button2.TabIndex = 5;
             button2.Text = "Insert";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // label6
             // 
@@ -250,13 +267,75 @@
             textBox6.Size = new Size(100, 23);
             textBox6.TabIndex = 0;
             // 
-            // dataContextBindingSource1
+            // tabPage3
             // 
-            dataContextBindingSource1.DataSource = typeof(Data.Context.DataContext);
+            tabPage3.Controls.Add(label8);
+            tabPage3.Controls.Add(label7);
+            tabPage3.Controls.Add(textBox7);
+            tabPage3.Controls.Add(comboBox1);
+            tabPage3.Controls.Add(button8);
+            tabPage3.Controls.Add(button7);
+            tabPage3.Location = new Point(4, 24);
+            tabPage3.Name = "tabPage3";
+            tabPage3.Padding = new Padding(3);
+            tabPage3.Size = new Size(446, 343);
+            tabPage3.TabIndex = 2;
+            tabPage3.Text = "Order Control";
+            tabPage3.UseVisualStyleBackColor = true;
             // 
-            // dataContextBindingSource
+            // label8
             // 
-            dataContextBindingSource.DataSource = typeof(Data.Context.DataContext);
+            label8.AutoSize = true;
+            label8.Location = new Point(11, 201);
+            label8.Name = "label8";
+            label8.Size = new Size(72, 15);
+            label8.TabIndex = 20;
+            label8.Text = "Order Status";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(29, 172);
+            label7.Name = "label7";
+            label7.Size = new Size(17, 15);
+            label7.TabIndex = 19;
+            label7.Text = "Id";
+            // 
+            // textBox7
+            // 
+            textBox7.Location = new Point(89, 164);
+            textBox7.Name = "textBox7";
+            textBox7.Size = new Size(125, 23);
+            textBox7.TabIndex = 18;
+            // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Items.AddRange(new object[] { "Pending", "Approved", "Declined", "Shipped", "Delivered" });
+            comboBox1.Location = new Point(89, 193);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(125, 23);
+            comboBox1.TabIndex = 17;
+            // 
+            // button8
+            // 
+            button8.Location = new Point(89, 222);
+            button8.Name = "button8";
+            button8.Size = new Size(125, 23);
+            button8.TabIndex = 16;
+            button8.Text = "Update Order Status";
+            button8.UseVisualStyleBackColor = true;
+            button8.Click += button8_Click;
+            // 
+            // button7
+            // 
+            button7.Location = new Point(242, 222);
+            button7.Name = "button7";
+            button7.Size = new Size(103, 23);
+            button7.TabIndex = 15;
+            button7.Text = "View Orders";
+            button7.UseVisualStyleBackColor = true;
+            button7.Click += button7_Click;
             // 
             // dataGridView1
             // 
@@ -281,8 +360,8 @@
             tabPage1.PerformLayout();
             tabPage2.ResumeLayout(false);
             tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataContextBindingSource1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataContextBindingSource).EndInit();
+            tabPage3.ResumeLayout(false);
+            tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
@@ -308,10 +387,16 @@
         private Button button4;
         private Button button2;
         private Button button5;
-        private BindingSource dataContextBindingSource;
-        private BindingSource dataContextBindingSource1;
         private Button button3;
         private ListView listView1;
         private DataGridView dataGridView1;
+        private Button button6;
+        private TabPage tabPage3;
+        private Button button8;
+        private Button button7;
+        private Label label8;
+        private Label label7;
+        private TextBox textBox7;
+        private ComboBox comboBox1;
     }
 }

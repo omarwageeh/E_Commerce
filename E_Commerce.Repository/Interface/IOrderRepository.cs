@@ -9,5 +9,6 @@ namespace E_Commerce.Repository.Interface
 {
     public interface IOrderRepository : IRepository<Order>
     {
+        Task<IEnumerable<Order>> GetAllWithInclude(string include);
     }
 }
