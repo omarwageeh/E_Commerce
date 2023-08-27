@@ -1,4 +1,5 @@
 using E_Commerce.Data.Context;
+using E_Commerce.Model;
 using E_Commerce.Repository.Interface;
 using E_Commerce.Repository.Repository;
 using E_Commerce.Repository.UnitOfWork;
@@ -41,8 +42,10 @@ namespace E_Commerce
                     options.UseSqlServer("Data Source=OWAGEH-LT-11120\\SQLEXPRESS;Initial Catalog=ECommerce;Integrated Security=True;TrustServerCertificate=True"));
                     services.AddScoped<Form1>();
                     services.AddScoped<Form2>();
+                    services.AddScoped<Form3>();
                     services.AddScoped<UserService>();
                     services.AddScoped<AdminService>();
+                    services.AddScoped<CustomerService>();
                     services.AddScoped<IAdminRepository, AdminRepository> ();
                     services.AddScoped<IUserRepository, UserRepository>();
                     services.AddScoped<ICustomerRepository, CustomerRepository>();

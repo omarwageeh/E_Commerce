@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -19,9 +20,9 @@ namespace E_Commerce.Repository.Repository
         }
 
 
-        public async Task<IEnumerable<Order>> GetAllWithInclude(string include)
+        public async Task<IEnumerable<Order>> GetAllWithInclude(Expression<Func<Order, bool>> predicate, string include)
         {
-            return  await _context.Set<Order>().Include(include).ToListAsync();
+            return  await _context.Set<Order>().Where(predicate).Include(include).ToListAsync();
         }
     }
 }

@@ -22,4 +22,8 @@
     <ProjectReference Include="..\E_Commerce.Service\E_Commerce.Service.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+
 </Project>

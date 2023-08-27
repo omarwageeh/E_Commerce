@@ -24,10 +24,10 @@ namespace E_Commerce.Repository.Repository
 
         public virtual void Delete(TEntity entity)
         {
-            _context.Set<TEntity>().Update(entity);
+            _context.Set<TEntity>().Remove(entity);
         }
 
-        public virtual Task<TEntity> Get(Expression<Func<TEntity, bool>> predicate)
+        public virtual Task<TEntity?> Get(Expression<Func<TEntity, bool>> predicate)
         {
             return _context.Set<TEntity>().FirstOrDefaultAsync(predicate);
         }

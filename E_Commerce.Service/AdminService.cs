@@ -116,7 +116,7 @@ namespace E_Commerce.Service
                 StockQuantity = product.StockQuantity,
                 Category = cat,
             };
-            _uow.ProductRepository.Add(prod);
+            await _uow.ProductRepository.Add(prod);
             _uow.SaveChanges();
         }
         public async void UpdateProduct(ProductDto product)
@@ -143,7 +143,7 @@ namespace E_Commerce.Service
 
         public async Task<IEnumerable<Order>?> GetOrders()
         {
-            return await _uow.OrderRepository.GetAllWithInclude("Customer");
+            return await _uow.OrderRepository.GetAllWithInclude(o=>!o.IsDeleted,"Customer");
         }
         public async Task<Order?> GetOrder(Guid id)
         {
